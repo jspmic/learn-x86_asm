@@ -186,6 +186,21 @@ Ex: `movl 4(%eax), %ebx` load the value at `4+%eax` into `%ebx`
 It is used to load direct values into registers or memory locations.
 Ex: `movl $13, %ecx`, loads `13` into `%ecx`.
 
+In addition to these modes, there are also different instructions for different sizes
+of values to move. For example, we have been using `movl` to move data a word at
+a time. in many cases, you will only want to move data a byte at a time. This is
+accomplished by the instruction `movb`. However, since the registers we have
+discussed are word-sized and not byte-sized, you cannot use the full register.
+Instead, you have to use a portion of the register.
+
+Let's take an example of `eax`(which is word-sized):
+- If i wanted to work with 2 bytes, i would use `ax`(the LSB of `eax`),
+- `ax` is divided into `al`(the LSB of `ax`) and `ah`(the MSB of `ax`)
+
+Loading a value in `eax` will wipe out everything in `al`, `ah` and `ax`.
+Similarly, loading a value in either `al` or `ah` will corrupt `eax`.
+Never use the same register for a byte and a word at the same time.
+
 
 
 

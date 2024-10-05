@@ -25,5 +25,5 @@ _start:
 	# Defines the value of the _start label
 	# A label is a symbol followed by a colon
 	movl $1, %eax
-	movl $0, %ebx
+	movl $3, %ebx
 	int $0x80
