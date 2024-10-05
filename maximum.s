@@ -12,7 +12,7 @@
 .section .data
 data_items:
 	# a long uses 4 bytes in memory
-	.long 3, 67, 34, 300, 45, 75, 54, 34, 44, 33, 22, 11, 66, 0
+	.long 3, 67, 34, 100, 45, 75, 54, 34, 44, 33, 22, 11, 66, 0
 
 .section .text
 .globl _start

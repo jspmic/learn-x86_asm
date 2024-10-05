@@ -168,6 +168,23 @@ into `eax`.
 - Indexed addressing mode
 This is done by using the `ADDRESS_OR_OFFSET` and the `%INDEX` portion.
 You can use any general-purpose register in the `%INDEX` portion.
+You can also have a constant multiplier of 1, 2, or 4 for the index register,
+to make it easier to index by bytes, double-bytes, and words.
+Ex: `movl string_start(,%ecx,1), %eax`, this starts at `string_start` and
+adds `1 * %ecx` to that address and loads it into `%eax`.
+
+- Indirect addressing mode
+It loads a value from the address indicated by a register.
+Ex: `movl (%eax), %ebx`, we move the address in `eax` into `ebx`.
+
+- Base pointer addressing mode
+Similar to indirect addressing mode except that it adds a constant value
+to the address.
+Ex: `movl 4(%eax), %ebx` load the value at `4+%eax` into `%ebx`
+
+- Immediate mode
+It is used to load direct values into registers or memory locations.
+Ex: `movl $13, %ecx`, loads `13` into `%ecx`.
 
 
 
