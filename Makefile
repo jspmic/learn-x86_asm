@@ -1,13 +1,13 @@
 ASSEMBLER="as"
-LINK="ld"
-FILE="maximum.s"
+LINKER="ld"
+FILE="stack.s"
 ARGS="-o"
 OBJ="a.out"
 BIN="out"
 
 default:
 	$(ASSEMBLER) $(FILE) $(ARGS) $(OBJ)
-	$(LINK) $(OBJ) $(ARGS) $(BIN)
+	$(LINKER) $(OBJ) $(ARGS) $(BIN)
 
 clean:
 	rm $(BIN) $(OBJ)
