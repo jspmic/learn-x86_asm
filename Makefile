@@ -1,12 +1,12 @@
-ASSEMBLER = as
+ASM = as
 LINKER = ld
-FILE = maximum.s
+SRC = maximum.s
 ARGS = -o
 OBJ = a.out
 BIN = out
 
 default:
-	$(ASSEMBLER) $(FILE) $(ARGS) $(OBJ)
+	$(ASM) $(SRC) $(ARGS) $(OBJ)
 	$(LINKER) $(OBJ) $(ARGS) $(BIN)
 
 clean:
