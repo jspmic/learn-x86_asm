@@ -1,13 +1,14 @@
 ASM = as
 LINKER = ld
-SRC = maximum.s
-ARGS = -o
+SRC = power.s
+A_ARGS = --32
+L_ARGS = -m elf_i386
 OBJ = a.out
 BIN = out
 
 default:
-	$(ASM) $(SRC) $(ARGS) $(OBJ)
-	$(LINKER) $(OBJ) $(ARGS) $(BIN)
+	$(ASM) $(A_ARGS) $(SRC)
+	$(LINKER) $(L_ARGS) $(OBJ) -o $(BIN)
 
 clean:
 	rm $(BIN) $(OBJ)
