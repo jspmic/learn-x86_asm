@@ -1,9 +1,9 @@
-ASSEMBLER="as"
-LINKER="ld"
-FILE="stack.s"
-ARGS="-o"
-OBJ="a.out"
-BIN="out"
+ASSEMBLER = as
+LINKER = ld
+FILE = maximum.s
+ARGS = -o
+OBJ = a.out
+BIN = out
 
 default:
 	$(ASSEMBLER) $(FILE) $(ARGS) $(OBJ)
