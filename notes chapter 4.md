@@ -46,6 +46,9 @@ And when we use `popl`, `%esp` is increased by a word and stores the popped valu
 - `pushl`: the register to push onto the stack
 - `popl`: the register to receive data that is popped off the stack
 
+> Tip: If we want to get the value at the address %eax, we can use indirect addressing mode `(%eax)`,
+ If we want to access the value right below the top of the stack we can use the base addressing mode: `4(%eax)`.
+
 
 
 
