@@ -18,7 +18,7 @@ _start:
 	pushl $2
 	pushl $5
 	call power
-	add $8, %esp
+	addl $8, %esp
 	popl %ebx
 	addl %eax, %ebx
 	movl $1, %eax
@@ -28,23 +28,23 @@ _start:
 power:
 	pushl %ebp
 	movl %esp, %ebp
-	subl $4, %esp
+	subl $4, %esp # Reserves the space to store the result
 	
-	movl 8(%ebp), %ebx
-	movl 12(%ebp), %ecx
-	movl %ebx, -4(%ebp)
+	movl 8(%ebp), %ebx # The base is moved into ebx
+	movl 12(%ebp), %ecx # The power is moved into ecx
+	movl %ebx, -4(%ebp) # Move what's into ebx into the result-reserved space
 
 power_loop_start:
 	cmpl $1, %ecx
 	je end_power
-	movl -4(%ebp), %eax
-	imull %ebx, %eax
-	movl %eax, -4(%ebp)
-	decl %ecx
+	movl -4(%ebp), %eax # Move the result into eax
+	imull %ebx, %eax # Multiply the base with the result and store it in eax
+	movl %eax, -4(%ebp) # Move the result into the result-reserved space
+	decl %ecx # Decrement ecx(which is the register containing the power)
 	jmp power_loop_start
 
 end_power:
-	movl -4(%ebp), %eax
+	movl -4(%ebp), %eax # Move the final result in eax
 	movl %ebp, %esp
 	popl %ebp
 	ret
