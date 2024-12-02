@@ -2,7 +2,7 @@ ASM = as
 LINKER = ld
 SRC_DIR=src
 BUILD_DIR=build
-SRC = factorial
+SRC = square
 A_ARGS = --32
 L_ARGS = -m elf_i386
 
