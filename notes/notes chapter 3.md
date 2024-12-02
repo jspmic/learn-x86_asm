@@ -201,34 +201,3 @@ Loading a value in `eax` will wipe out everything in `al`, `ah` and `ax`.
 Similarly, loading a value in either `al` or `ah` will corrupt `eax`.
 Never use the same register for a byte and a word at the same time.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

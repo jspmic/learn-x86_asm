@@ -108,3 +108,4 @@ contained the value 4, whatever value was at memory location 4 would be used.
 The `base pointer addressing mode` is similar to indirect addressing mode,
 but you also include a number called the `offset` to add to the
 register's value before using it for lookup.
+
