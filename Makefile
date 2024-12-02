@@ -1,6 +1,6 @@
 ASM = as
 LINKER = ld
-SRC = power.s
+SRC = factorial.s
 A_ARGS = --32
 L_ARGS = -m elf_i386
 OBJ = a.out
