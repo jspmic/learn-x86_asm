@@ -1,4 +1,4 @@
-#	PURPOSE: This program is an implementation of a function
+# PURPOSE:   This program is an implementation of a function
 #			 that prints a given string to STDOUT.
 #			 This small program consists of 2 strings examples
 
@@ -6,7 +6,7 @@
 	mssg:
 		.ascii "\n\tHello World!\0"
 	mssg2:
-		.ascii "\n\tExiting...\0"
+		.ascii "\n\tSuccess...\0"
 
 	.equ LEN, 14
 	.equ LEN2, 13
