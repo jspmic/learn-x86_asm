@@ -60,16 +60,15 @@ Before executing a function:
 The `call` instruction does 2 things:
 - Push the address of the next instruction(return address) onto the stack
 - Modify the instruction pointer(`%eip`) to point to the start of the function
-
+```
     ┌─────────────────┐
     │  Parameter n    │
     │    ...          │
     │  Parameter 2    │
     │  Parameter 1    │
     │  Return address │
-    │                 │
     └─────────────────┘
-
+```
 The function has some work to do:
 - Save the current base pointer register, `%ebp`, by doing `pushl %ebp`.
 
