@@ -1,8 +1,8 @@
 ASM = as
 LINKER = ld
-SRC_DIR=src
+SRC_DIR=src/personnal
 BUILD_DIR=build
-SRC = square
+SRC = printf
 A_ARGS = --32
 L_ARGS = -m elf_i386
 
