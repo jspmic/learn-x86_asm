@@ -1,6 +1,6 @@
 ASM = as
 LINKER = ld
-SRC_DIR=src/personnal
+SRC_DIR=src/personal
 BUILD_DIR=build
 SRC = printf
 A_ARGS = --32
