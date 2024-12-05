@@ -50,5 +50,6 @@ _print_exit:
 	ret
 
 _exit:
+	movl $0, %ebx  # Exit successfully
 	movl $SYS_EXIT, %eax
 	int $SYSCALL
