@@ -1,11 +1,13 @@
 ASM = as
 LINKER = ld
-SRC_DIR=src
+# SRC_DIR=src
+SRC_DIR=src/personal
 BUILD_DIR=build
 A_ARGS = --32
 L_ARGS = -m elf_i386
 
-FILES = exit factorial file maximum power square
+# FILES = exit factorial file maximum power square
+FILES = mssg_counter printf
 
 all: $(addprefix $(BUILD_DIR)/,$(FILES))
 
