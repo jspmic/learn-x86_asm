@@ -1,19 +1,21 @@
 ASM = as
 LINKER = ld
-SRC_DIR=src/personal
+SRC_DIR=src
 BUILD_DIR=build
-SRC = printf
 A_ARGS = --32
 L_ARGS = -m elf_i386
 
-.PHONY: clean, build, default
+FILES = exit factorial file maximum power square
 
-default: build
-	$(ASM) $(A_ARGS) $(SRC_DIR)/$(SRC).s -o $(BUILD_DIR)/$(SRC).a
-	$(LINKER) $(L_ARGS) $(BUILD_DIR)/$(SRC).a -o $(BUILD_DIR)/$(SRC)
+all: $(addprefix $(BUILD_DIR)/,$(FILES))
 
-build:
-	mkdir -p $(BUILD_DIR)
+$(BUILD_DIR)/%: $(SRC_DIR)/%.s
+	@mkdir -p $(BUILD_DIR)
+	$(ASM) $(A_ARGS) $< -o $@.a
+	$(LINKER) $(L_ARGS) $@.a -o $@
+	@rm $@.a
 
 clean:
 	rm $(BUILD_DIR)/*
+
+.PHONY: clean, all
