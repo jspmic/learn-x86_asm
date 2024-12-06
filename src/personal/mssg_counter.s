@@ -1,17 +1,19 @@
 #	PURPOSE: This program is an implementation of a function
-#			 that prints a given string to STDOUT.
-#			 This small program consists of 2 examples strings.
+#			 that prints a given string N times to STDOUT.
 
 .section .data
 	mssg:
-		.ascii "\n\tHello World\0"
+		.asciz "\n\tHello World"
+	mssg_end:
+		.equ LEN, mssg_end - mssg
 	mssg2:
-		.ascii "\n\tExiting....\0"
+		.asciz "\n\tExiting...."
+	mssg_end2:
+		.equ LEN2, mssg_end2 - mssg2
 
-	.equ LEN, 14
 
 	.equ STDOUT, 1
-	.equ COUNT, 10
+	.equ N, 10
 	.equ EXIT_SUCCESS, 0
 
 	.equ SYS_EXIT, 1
@@ -22,7 +24,7 @@
 .global _start
 
 _start:
-	pushl $COUNT
+	pushl $N
 	pushl $mssg
 	pushl $LEN
 	call printf  # Printing the first string `mssg`
