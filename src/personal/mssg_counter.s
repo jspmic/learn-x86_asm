@@ -4,14 +4,15 @@
 
 .section .data
 	mssg:
-		.ascii "\n\tHello World!\0"
+		.ascii "\n\tHello World\0"
 	mssg2:
-		.ascii "\n\tExiting...\0"
+		.ascii "\n\tExiting....\0"
 
 	.equ LEN, 14
-	.equ LEN2, 13
 
 	.equ STDOUT, 1
+	.equ COUNT, 10
+	.equ EXIT_SUCCESS, 0
 
 	.equ SYS_EXIT, 1
 	.equ SYS_WRITE, 4
@@ -21,18 +22,10 @@
 .global _start
 
 _start:
-	pushl $4
+	pushl $COUNT
 	pushl $mssg
 	pushl $LEN
 	call printf  # Printing the first string `mssg`
-
-	movl $4, %eax  # Scrubbing
-
-	pushl $mssg2
-	pushl $LEN2
-	call printf  # Printing the 2nd string `mssg2`
-
-	jmp _exit # Exit the program
 
 .type printf, @function
 printf:
@@ -52,7 +45,6 @@ printf:
 	pushl %edx
 	call printf
 	jmp _exit
-	; jmp _print_exit
 
 _print_exit:
 	movl %ebp, %esp
@@ -60,5 +52,6 @@ _print_exit:
 	ret
 
 _exit:
+	movl $EXIT_SUCCESS, %ebx
 	movl $SYS_EXIT, %eax
 	int $SYSCALL

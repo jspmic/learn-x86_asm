@@ -26,6 +26,6 @@ $(BUILD_DIR)/%: $(SRC_DIR)/%.s
 	@rm $@.a
 
 clean:
-	rm $(BUILD_DIR)/*
+	@rm $(BUILD_DIR)/*
 
 .PHONY: clean, all
