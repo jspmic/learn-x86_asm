@@ -4,9 +4,13 @@
 
 .section .data
 	mssg:
-		.ascii "\n\tHello World\0"
+		.asciz "\n\tHello World"
+	mssg_end:
+		.equ LEN, mssg_end - mssg
 	mssg2:
-		.ascii "\n\tSuccess...\n\0"
+		.asciz "\n\tSuccess...."
+	mssg_end2:
+		.equ LEN2, mssg_end2 - mssg2
 
 	.equ LEN, 14
 
@@ -28,7 +32,7 @@ _start:
 	addl $4, %esp  # Scrubbing the parameter
 
 	pushl $mssg2
-	pushl $LEN
+	pushl $LEN2
 	call printf  # Printing the 2nd string `mssg2`
 
 	jmp _exit # Exit the program
