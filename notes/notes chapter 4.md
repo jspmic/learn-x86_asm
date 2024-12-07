@@ -132,3 +132,8 @@ popl %ebp
 ret
 ```
 
+Examples: `factorial.s`(recursive function), `power.s` and `square.s`
+Advanced examples: `personal/printf.s` and `personal/mssg_counter.s`
+
+> The following examples contain detailed explanations and are found in `src/`.
+

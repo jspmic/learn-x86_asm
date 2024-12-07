@@ -10,17 +10,17 @@ _start:
 	# We will only allow values of p such as p>=1
 
 	# Let's first calculate 2^3 + 5^2
-	pushl $3
-	pushl $2
+	pushl $3 # Insert the power first
+	pushl $2 # Insertion of the base
 	call power # call the function
-	addl $8, %esp
-	pushl %eax
+	addl $8, %esp # Scrubbing the parameters
+	pushl %eax # Save the first answer on the stack
 	pushl $2
 	pushl $5
 	call power
-	addl $8, %esp
-	popl %ebx
-	addl %eax, %ebx
+	addl $8, %esp # Scrubbing the parameters
+	popl %ebx # Retrieve the first answer on the stack into %ebx
+	addl %eax, %ebx # Add the contents of %eax and %ebx and store the sum into %ebx
 	movl $1, %eax
 	int $0x80
 
