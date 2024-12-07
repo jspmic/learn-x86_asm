@@ -29,7 +29,7 @@ _start:
 	pushl $LEN
 	call printf  # Printing the first string `mssg`
 
-	addl $4, %esp  # Scrubbing the parameter
+	addl $8, %esp  # Scrubbing the parameters
 
 	pushl $mssg2
 	pushl $LEN2
@@ -37,6 +37,10 @@ _start:
 
 	jmp _exit # Exit the program
 
+
+# @description: This function prints the given message(of length N) to STDOUT
+# @args: The string and its length
+# @returns: Nothing particular(except the status returned by the SYSCALL in %eax)
 .type printf, @function
 printf:
 	pushl %ebp
@@ -53,6 +57,7 @@ _print_exit:
 	popl %ebx
 	ret
 
+# This label is jumped to when the program is to be closed
 _exit:
 	movl $EXIT_SUCCESS, %ebx  # Exit successfully
 	movl $SYS_EXIT, %eax
