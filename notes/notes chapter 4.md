@@ -132,3 +132,4 @@ popl %ebp
 ret
 ```
 
+Examples: `factorial.s`(recursive function), `power.s` and `square.s`
