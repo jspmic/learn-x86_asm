@@ -10,11 +10,14 @@
 .equ STDIN, 0
 .equ STDOUT, 1
 .equ STDERR, 2
+
+.equ RDONLY, 0
+.equ WRONLY, 1
+
 .equ EOF, 0
 
-.equ BUFFER_SIZE, 500
-
 .section .bss
+	.equ BUFFER_SIZE, 500
 	.lcomm buffer, BUFFER_SIZE
 
 .section .text
