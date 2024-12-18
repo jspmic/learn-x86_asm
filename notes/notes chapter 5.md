@@ -79,7 +79,7 @@ The program starts with some default files opened(for Linux we have at least 3),
 These files can be redirected from or to a real file, rather than the screen or the keyboard.
 
 > Use the `.equ` directive to name a constant in your program, ex: `.equ SYSCALL 0x80` which means SYSCALL -> 0x80
- You can then call `int $SYSCALL` to substitute it to `int $0x80
+ You can then call `int $SYSCALL` to substitute it to `int $0x80`
 
 
 
