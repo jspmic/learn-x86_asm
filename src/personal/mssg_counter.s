@@ -50,7 +50,7 @@ printf:
 
 _print_exit:
 	movl %ebp, %esp
-	popl %ebx
+	popl %ebp
 	ret
 
 _exit:

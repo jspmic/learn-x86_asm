@@ -54,7 +54,7 @@ printf:
 
 _print_exit:
 	movl %ebp, %esp
-	popl %ebx
+	popl %ebp
 	ret
 
 # This label is jumped to when the program is to be closed
