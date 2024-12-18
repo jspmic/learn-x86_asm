@@ -12,7 +12,7 @@ A_ARGS = --32
 L_ARGS = -m elf_i386
 
 # Uncomment/Comment the following line to build(or not) examples from the book
-# FILES = exit factorial file maximum power square
+# FILES = exit factorial toupper maximum power square
 
 # Uncomment/Comment the following line to build(or not) my personal programs
 FILES = mssg_counter printf
