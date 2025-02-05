@@ -23,8 +23,8 @@ The `mode` number into `%ecx`, the permission set as a number into `%edx`.
 3. Operate on the file using the `fd`. For read use `read`(syscall number `3`); for write use `write`(syscall number `4`).
 To call `read`, you need to have the fd in `%ebx`, the address for the buffer(to store what's read) in `%ecx`(explained later)
 and the size of the buffer in `%edx`.
-`read` will return the number of characters read or an error code(usually negative) in `%eax`. The same goes with `write` except that
-the buffer should be filled with the data to write(not empty like `read`).
+`read` will return the number of characters read or an error code(usually negative) in `%eax`.
+The same goes with `write` except that the buffer should be filled with the data to write(not empty like `read`).
 
 4. Close the file using `close`(syscall number `6`), with the `fd` in `%ebx`.
 
