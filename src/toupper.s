@@ -84,7 +84,7 @@ read_loop_begin:
 continue_read_loop:
 	###	CONVERT THE BLOCK TO UPPER CASE
 	pushl $BUFFER_DATA		# Location of buffer
-	pushl %eax				# Size of the buffer
+	pushl %eax				# Size of the buffer(number of characters read)
 	call convert_to_upper
 	popl %eax				# Get the size back
 	addl $4, %esp			# Restore %esp
@@ -127,7 +127,7 @@ end_loop:
 .equ UPPER_CONVERSION, 'A' - 'a'
 
 ###STACK STUFF###
-.equ ST_BUFFER_LEN, 8	# Length of buffer
+.equ ST_BUFFER_LEN, 8	# Length of buffer(number of characters read)
 .equ ST_BUFFER, 12		# actual buffer
 
 .type convert_to_upper, @function
@@ -137,7 +137,7 @@ convert_to_upper:
 	movl ST_BUFFER(%ebp), %eax
 	movl ST_BUFFER_LEN(%ebp), %ebx
 	movl $0, %edi
-	cmpl $0, %ebx
+	cmpl $0, %ebx		# Not necessary since we checked for the EOF up there
 	je end_convert_loop
 
 convert_loop:
