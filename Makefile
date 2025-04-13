@@ -5,17 +5,18 @@ LINKER = ld
 # SRC_DIR=src
 
 # Uncomment/Comment the following line to build(or not) my personal programs
-SRC_DIR=src/personal
+# SRC_DIR=src/personal
 
 BUILD_DIR=build
 A_ARGS = --32
 L_ARGS = -m elf_i386
 
-# Uncomment/Comment the following line to build(or not) examples from the book
-# FILES = exit factorial toupper maximum power square
+.PHONY: all clean
+
+FILES = $(subst $(SRC_DIR)/,,$(subst .s,,$(shell ls $(SRC_DIR)/*.s)))
 
 # Uncomment/Comment the following line to build(or not) my personal programs
-FILES = mssg_counter printf
+# FILES = mssg_counter printf
 
 all: $(addprefix $(BUILD_DIR)/,$(FILES))
 
